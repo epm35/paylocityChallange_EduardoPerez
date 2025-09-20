@@ -13,6 +13,16 @@ Ensure the following are installed:
 - Chrome or Edge browser (for UI tests)
 
 ---
+### Environment Variables
+
+For security reassons, the following Env Variables needs to be added to the system 
+
+- Paylocity_Challenge_User=PaylocityUser
+- Paylocity_Challenge_Password=PaylocityPassword
+- Paylocity_Challenge_Token=BASIC_TOKEN
+- Paylocity_Challenge_URL=API_URL
+
+---
 
 ## 🚀 How to Restore and Run Tests
 
@@ -32,4 +42,3 @@ dotnet restore
 playwright install 
 dotnet test
 ```
-
