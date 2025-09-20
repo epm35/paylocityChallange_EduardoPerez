@@ -10,9 +10,7 @@ Ensure the following are installed:
 
 - [.NET SDK 8.0+](https://dotnet.microsoft.com/en-us/download)
 - [Visual Studio 2022+](https://visualstudio.microsoft.com/)
-- [Playwright CLI (if using Playwright)](https://playwright.dev/dotnet/docs/intro)
 - Chrome or Edge browser (for UI tests)
-- Internet access (for API endpoint reachability)
 
 ---
 
