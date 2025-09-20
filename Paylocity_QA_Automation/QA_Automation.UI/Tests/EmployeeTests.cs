@@ -9,10 +9,14 @@ namespace QA_Automation.UI.Tests
 {
     public class EmployeeTests : TestBase
     {
+        string username = Environment.GetEnvironmentVariable("Paylocity_Challenge_User");
+        string password = Environment.GetEnvironmentVariable("Paylocity_Challenge_Password");
+
+
         [Test]
         public async Task AddEmployee_HappyPath()
         {
-            await AddEmployeeFlowAsync("TestUser807", "7Ck;sSEke]p/", "Alondra", "Covian", "2");
+            await AddEmployeeFlowAsync(username, password, "Alondra", "Covian", "2");
 
             var employeePage = new EmployeePage(Page);
             await employeePage.WaitForTableFullyRenderedAsync();
@@ -34,7 +38,7 @@ namespace QA_Automation.UI.Tests
             var lastName = "Ponce";
             var dependents = 5;
 
-            await AddEmployeeFlowAsync("TestUser807", "7Ck;sSEke]p/", firstName, lastName, dependents.ToString());
+            await AddEmployeeFlowAsync(username, password, firstName, lastName, dependents.ToString());
 
             var employeePage = new EmployeePage(Page);
             await employeePage.WaitForTableFullyRenderedAsync();
@@ -71,7 +75,7 @@ namespace QA_Automation.UI.Tests
             var employeePage = new EmployeePage(Page);
 
             await loginPage.NavigateAsync();
-            await loginPage.LoginAsync("TestUser807", "7Ck;sSEke]p/");
+            await loginPage.LoginAsync(username, password);
 
             await employeePage.ClickAddEmployeeAsync();
             await employeePage.FillEmployeeForm("John", "Smith", "2.5");
@@ -91,7 +95,7 @@ namespace QA_Automation.UI.Tests
             var lastName = "Delgadillo";
             var dependents = 5;
 
-            await AddEmployeeFlowAsync("TestUser807", "7Ck;sSEke]p/", firstName, lastName, dependents.ToString());
+            await AddEmployeeFlowAsync(username, password, firstName, lastName, dependents.ToString());
             
             await employeePage.WaitForTableFullyRenderedAsync();
             //Swapped due to Showstopper found
@@ -121,7 +125,7 @@ namespace QA_Automation.UI.Tests
             var lastName = "Perez";
             var dependents = 5;
 
-            await AddEmployeeFlowAsync("TestUser807", "7Ck;sSEke]p/", firstName, lastName, dependents.ToString());
+            await AddEmployeeFlowAsync(username, password, firstName, lastName, dependents.ToString());
             await employeePage.WaitForTableFullyRenderedAsync();
             // Swapped due to Showstopper
             Assert.IsTrue(await employeePage.ClickDeleteForEmployeeAsync(lastName, firstName), "The employee was not deleted from the table.");
